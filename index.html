@@ -7,6 +7,7 @@
     <title>The Hera Resort</title>
     <meta name="description" content="The Hera Resort - Dự án nghỉ dưỡng ven biển sang trọng tại Vịnh Tiên Quy Nhơn.">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/gallery.css">
 </head>
 
 <body>
@@ -41,25 +42,21 @@
             </div>
             <div class="say">
                 <img src="images/say.png" alt="Say">
-                <p>Say là khi ta để trái tim thăng hoa giữa nhịp sống Santorini rực rỡ tại The Hera Resort, lãng đãng
-                    hòa mình vào vẻ đẹp nguyên sơ của đại ngàn và biển biếc.
-                    Khi người ta say, mọi rào cản đều tan biến để nhường chỗ cho những rung cảm chân thật nhất.</p>
+                <p>Say là khi ta để trái tim thăng hoa giữa nhịp sống Santorini rực rỡ tại The Hera Resort, lãng đãng hòa mình vào vẻ đẹp nguyên sơ của đại ngàn và biển biếc. Khi người ta say, mọi rào cản đều tan biến để nhường chỗ cho những rung cảm chân
+                    thật nhất.</p>
             </div>
             <div class="say-item">
                 <div class="say-item-content">
                     <h3>Say thiên nhiên</h3>
-                    <p>Say cái chạm nhẹ của gió biển Quy Nhơn, say bầu không khí tinh khôi và ánh bình minh nhuộm vàng
-                        vịnh biếc vĩnh cửu.</p>
+                    <p>Say cái chạm nhẹ của gió biển Quy Nhơn, say bầu không khí tinh khôi và ánh bình minh nhuộm vàng vịnh biếc vĩnh cửu.</p>
                 </div>
                 <div class="say-item-content">
                     <h3>Say con người</h3>
-                    <p>Say nụ cười chân phương của người bản xứ, say nhịp sống dung dị và những câu chuyện nồng hậu giữa
-                        miền cát trắng.</p>
+                    <p>Say nụ cười chân phương của người bản xứ, say nhịp sống dung dị và những câu chuyện nồng hậu giữa miền cát trắng.</p>
                 </div>
                 <div class="say-item-content">
                     <h3>Say kiệt tác</h3>
-                    <p>Say sắc trắng Santorini rực rỡ nương mình vào núi đá, say nhịp sống phóng khoáng bừng sắc tại
-                        thiên đường du lịch hàng đầu thế giới.</p>
+                    <p>Say sắc trắng Santorini rực rỡ nương mình vào núi đá, say nhịp sống phóng khoáng bừng sắc tại thiên đường du lịch hàng đầu thế giới.</p>
                 </div>
             </div>
         </section>
@@ -69,8 +66,7 @@
                 <h2>Tuyệt tác Santorini</h2>
                 <h3>miền nhiệt đới</h3>
                 <img src="images/icon-logo.png" alt="Icon Logo">
-                <p>Tuyệt tác nghỉ dưỡng đa trải nghiệm phong cách Santorini nhiệt đới lần đầu tiên xuất hiện tại
-                    Việt Nam.
+                <p>Tuyệt tác nghỉ dưỡng đa trải nghiệm phong cách Santorini nhiệt đới lần đầu tiên xuất hiện tại Việt Nam.
                 </p>
             </div>
         </section>
@@ -101,9 +97,7 @@
                 <h3>Tọa độ độc bản</h3>
                 <h2>giữa núi rừng nguyên sơ</h2>
                 <h2>Vịnh Tiên Quy Nhơn</h2>
-                <p>Quy Nhơn - thành phố biển quyến rũ với bãi cát trắng mịn, nước biển trong xanh và những hòn đảo
-                    hoang sơ. Nơi đây là điểm đến lý tưởng cho những ai yêu thích sự yên bình, thiên nhiên tươi đẹp và
-                    văn hóa đặc sắc.</p>
+                <p>Quy Nhơn - thành phố biển quyến rũ với bãi cát trắng mịn, nước biển trong xanh và những hòn đảo hoang sơ. Nơi đây là điểm đến lý tưởng cho những ai yêu thích sự yên bình, thiên nhiên tươi đẹp và văn hóa đặc sắc.</p>
                 <div class="slide-city">
                     <div class="slide-city-item">
 
@@ -169,64 +163,122 @@
         </section>
 
         <section class="section section-album">
-            <div class="album-thumbs">
-                <img src="images/duoi-cong-1.png" alt="Album 1">
-                <img src="images/say.png" alt="Album 2">
-                <img src="images/image-section-3.png" alt="Album 3">
-                <img src="images/image-section-2.png" alt="Album 4">
+            <div class="container">
+                <div class="gallery-container">
+                    <div class="main-display">
+                        <img id="main-img" class="active" src="images/anh-slide-1.jpg" alt="Main">
+                        <video id="main-video" controls src=""></video>
+                    </div>
+
+                    <div class="thumbnails-grid">
+
+                        <div class="thumb-item active" data-type="image" data-src="images/anh-slide-1.jpg">
+                            <img class="thumb-preview" src="https://picsum.photos/id/10/300/200" alt="Thumb 1">
+                            <div class="sub-gallery-popup">
+                                <img class="sub-thumb" data-type="image" data-src="images/anh-slide-1.jpg" src="https://picsum.photos/id/10/100/100">
+                                <img class="sub-thumb" data-type="image" data-src="https://picsum.photos/id/11/1000/600" src="https://picsum.photos/id/11/100/100">
+                                <img class="sub-thumb" data-type="image" data-src="https://picsum.photos/id/12/1000/600" src="https://picsum.photos/id/12/100/100">
+                                <img class="sub-thumb" data-type="image" data-src="https://picsum.photos/id/13/1000/600" src="https://picsum.photos/id/13/100/100">
+                            </div>
+                        </div>
+
+                        <div class="thumb-item" data-type="video" data-src="https://www.w3schools.com/html/mov_bbb.mp4">
+                            <img class="thumb-preview" src="https://picsum.photos/id/28/300/200" alt="Thumb 2">
+                            <div class="sub-gallery-popup">
+                                <video class="sub-thumb" data-type="video" data-src="https://www.w3schools.com/html/mov_bbb.mp4" src="https://www.w3schools.com/html/mov_bbb.mp4"></video>
+                                <img class="sub-thumb" data-type="image" data-src="https://picsum.photos/id/15/1000/600" src="https://picsum.photos/id/15/100/100">
+                                <img class="sub-thumb" data-type="image" data-src="https://picsum.photos/id/16/1000/600" src="https://picsum.photos/id/16/100/100">
+                                <img class="sub-thumb" data-type="image" data-src="https://picsum.photos/id/17/1000/600" src="https://picsum.photos/id/17/100/100">
+                            </div>
+                        </div>
+
+                        <div class="thumb-item" data-type="image" data-src="https://picsum.photos/id/29/1000/600">
+                            <img class="thumb-preview" src="https://picsum.photos/id/29/300/200" alt="Thumb 3">
+                            <div class="sub-gallery-popup">
+                                <img class="sub-thumb" data-type="image" data-src="https://picsum.photos/id/18/1000/600" src="https://picsum.photos/id/18/100/100">
+                                <img class="sub-thumb" data-type="image" data-src="https://picsum.photos/id/19/1000/600" src="https://picsum.photos/id/19/100/100">
+                                <img class="sub-thumb" data-type="image" data-src="https://picsum.photos/id/20/1000/600" src="https://picsum.photos/id/20/100/100">
+                                <img class="sub-thumb" data-type="image" data-src="https://picsum.photos/id/21/1000/600" src="https://picsum.photos/id/21/100/100">
+                            </div>
+                        </div>
+
+                        <div class="thumb-item" data-type="image" data-src="https://picsum.photos/id/29/1000/600">
+                            <img class="thumb-preview" src="https://picsum.photos/id/29/300/200" alt="Thumb 3">
+                            <div class="sub-gallery-popup">
+                                <img class="sub-thumb" data-type="image" data-src="https://picsum.photos/id/18/1000/600" src="https://picsum.photos/id/18/100/100">
+                                <img class="sub-thumb" data-type="image" data-src="https://picsum.photos/id/19/1000/600" src="https://picsum.photos/id/19/100/100">
+                                <img class="sub-thumb" data-type="image" data-src="https://picsum.photos/id/20/1000/600" src="https://picsum.photos/id/20/100/100">
+                                <img class="sub-thumb" data-type="image" data-src="https://picsum.photos/id/21/1000/600" src="https://picsum.photos/id/21/100/100">
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
             </div>
         </section>
 
         <section class="section section-partners">
-            <h2>Đơn vị phân phối</h2>
-            <div class="partners-row">
-                <img src="images/dv-1.png" alt="Đối tác 1">
-                <img src="images/dv-1.png" alt="Đối tác 2">
-                <img src="images/dv-1.png" alt="Đối tác 3">
-                <img src="images/dv-1.png" alt="Đối tác 4">
+            <div class="container">
+                <h2>Đơn vị phân phối</h2>
+                <div class="partners-row">
+                    <img src="images/dv-1.png" alt="Đối tác 1">
+                    <img src="images/dv-1.png" alt="Đối tác 2">
+                    <img src="images/dv-1.png" alt="Đối tác 3">
+                    <img src="images/dv-1.png" alt="Đối tác 4">
+                    <img src="images/dv-1.png" alt="Đối tác 4">
+                    <img src="images/dv-1.png" alt="Đối tác 4">
+                    <img src="images/dv-1.png" alt="Đối tác 4">
+                    <img src="images/dv-1.png" alt="Đối tác 4">
+                    <img src="images/dv-1.png" alt="Đối tác 4">
+                </div>
             </div>
         </section>
+
+
 
     </main>
 
     <footer class="footer" id="contact">
-        <div class="footer-top">
-            <div class="footer-column">
-                <h3>The Hera Resort</h3>
-                <p>Chủ đầu tư: CÔNG TY CỔ PHẦN HERA QUY NHƠN</p>
-                <p>Vị trí dự án: Quốc lộ 1D tuyến Quy Nhơn - Sông</p>
-                <p>Cầu, Phường Quy Nhơn Nam, Tỉnh Gia Lai, Việt Nam</p>
-                <p>VPBH tại Hà Nội: ..........</p>
-                <p>Hotline CSKH: 09...... </p>
-            </div>
-            <div class="footer-column footer-logo">
-                <img src="images/logo-footer.png" alt="Logo Footer">
-            </div>
-            <div class="footer-column footer-contact">
-                <form action="">
-                    <input type="text" placeholder="Họ và tên" required>
-                    <input type="tel" placeholder="Số điện thoại" required>
-                    <input type="email" placeholder="Email" required>
-                    <select>
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-column">
+                    <h3>The Hera Resort</h3>
+                    <p>Chủ đầu tư: CÔNG TY CỔ PHẦN HERA QUY NHƠN</p>
+                    <p>Vị trí dự án: Quốc lộ 1D tuyến Quy Nhơn - Sông</p>
+                    <p>Cầu, Phường Quy Nhơn Nam, Tỉnh Gia Lai, Việt Nam</p>
+                    <p>VPBH tại Hà Nội: ..........</p>
+                    <p>Hotline CSKH: 09...... </p>
+                </div>
+                <div class="footer-column footer-logo">
+                    <img src="images/logo-footer.png" alt="Logo Footer">
+                </div>
+                <div class="footer-column footer-contact">
+                    <form action="">
+                        <input type="text" placeholder="Họ và tên" required>
+                        <input type="tel" placeholder="Số điện thoại" required>
+                        <input type="email" placeholder="Email" required>
+                        <select>
                         <option value="" disabled selected>Chọn yêu cầu</option>
                         <option value="info">Thông tin dự án</option>
                         <option value="booking">Đặt chỗ</option>
                         <option value="support">Hỗ trợ</option>
                     </select>
-                    <button type="submit">Gửi</button>
-                </form>
+                        <button type="submit">Gửi</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>Mọi thông tin trong tài liệu này đúng tại thời điểm phát hành và có thể được điều chỉnh mà không cần thông báo trước. Thông số bản vẽ là tương đối. Thông số chính thức của từng căn sẽ được quy định tại văn bản ký kết giữa Chủ đầu tư và
+                    khách hàng.
+                </p>
+                <p>Tài liệu/bản vẽ mang tính chất tham khảo và sẽ được Chủ đầu tư cập nhật, điều chỉnh tại mỗi thời điểm cho từng khu vực để đảm bảo tối ưu các tiện ích sử dụng và phù hợp với thiết kế tổng thể dự án.</p>
             </div>
         </div>
-        <div class="footer-bottom">
-            <p>Mọi thông tin trong tài liệu này đúng tại thời điểm phát hành và có thể được điều chỉnh mà không cần
-                thông báo trước. Thông số bản vẽ là tương đối. Thông số chính thức của từng căn sẽ được quy định tại văn
-                bản ký kết giữa Chủ đầu tư và khách hàng.</p>
-            <p>Tài liệu/bản vẽ mang tính chất tham khảo và sẽ được Chủ đầu tư cập nhật, điều chỉnh tại mỗi thời điểm cho
-                từng khu vực để đảm bảo tối ưu các tiện ích sử dụng và phù hợp với thiết kế tổng thể dự án.</p>
-        </div>
+
     </footer>
 
     <script src="js/custom.js"></script>
+    <script src="js/gallery.js"></script>
 </body>
 
 </html>
