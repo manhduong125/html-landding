@@ -1,0 +1,13 @@
+@font-face {
+    font-family: 'SVN-Aptima';
+    src: url('SVN-Aptima.eot');
+    src: url('SVN-Aptima.eot?#iefix') format('embedded-opentype'),
+        url('SVN-Aptima.woff2') format('woff2'),
+        url('SVN-Aptima.woff') format('woff'),
+        url('SVN-Aptima.ttf') format('truetype'),
+        url('SVN-Aptima.svg#SVN-Aptima') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
