@@ -7,6 +7,15 @@
     font-display: swap;
 }
 
+@font-face {
+    font-family: 'Butler';
+    src: url('../fonts/Butler-Free-Rmn.eot');
+    src: url('../fonts/Butler-Free-Rmn.eot?#iefix') format('embedded-opentype'), url('../fonts/Butler-Free-Rmn.woff2') format('woff2'), url('../fonts/Butler-Free-Rmn.woff') format('woff'), url('../fonts/Butler-Free-Rmn.ttf') format('truetype'), url('../fonts/Butler-Free-Rmn.svg#Butler-Free-Rmn') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
 
 /* RESET */
 
@@ -42,6 +51,15 @@ a {
     color: inherit;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5 {
+    font-family: 'Butler';
+    font-weight: normal;
+}
+
 button,
 input,
 textarea {
@@ -68,7 +86,7 @@ html {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 24px 48px;
+    padding: 10px 10px;
     background: transparent;
 }
 
@@ -96,8 +114,29 @@ html {
     overflow: hidden;
 }
 
-.hero {
-    aspect-ratio: 1920/1290;
+.section {
+    background-size: contain;
+    background-position: center;
+}
+
+.section-1,
+.section-2,
+.section-3,
+.section-4,
+.section-5 {
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.section-1,
+.section-2,
+.section-3,
+.section-4,
+.section-5,
+.section-album,
+.section-partners {
+    padding: 0 10px;
 }
 
 .section-1 {
@@ -120,25 +159,19 @@ html {
     aspect-ratio: 1920/1729;
 }
 
-.section {
-    background-size: contain;
-    background-position: center;
-}
-
-.section-1,
-.section-2,
-.section-3,
-.section-4,
 .section-5 {
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
+    padding: 0;
 }
 
 .hero {
     position: relative;
     background-size: contain;
     background-repeat: no-repeat;
+    padding: 0 10px;
+}
+
+.hero {
+    aspect-ratio: 1920/1290;
 }
 
 .hero-overlay,
@@ -494,7 +527,7 @@ html {
 @media (max-width: 1080px) {}
 
 .footer {
-    padding-top: 48px;
+    padding: 50px 10px 20px;
 }
 
 .footer-top {
@@ -567,15 +600,16 @@ html {
 }
 
 .footer-bottom {
+    margin-top: 40px;
     padding: 24px 48px 40px;
     border-top: 1px solid rgba(255, 255, 255, 0.08);
-    color: var(--text-soft);
-    font-size: 0.9rem;
+    color: #6fc5ef;
+    font-size: 10px;
+    text-align: center;
 }
 
 .footer-bottom p {
-    margin-bottom: 12px;
-    line-height: 1.6;
+    margin-bottom: 10px;
 }
 
 .footer-bottom p:last-child {
