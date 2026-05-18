@@ -1,0 +1,481 @@
+/* =========================
+ANIMATION STYLES - GSAP ScrollTrigger
+========================= */
+
+
+/* Fade & Reveal Animations */
+
+.fade-up {
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.fade-up.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.fade-in {
+    opacity: 0;
+}
+
+.fade-in.active {
+    opacity: 1;
+}
+
+.reveal {
+    position: relative;
+    overflow: hidden;
+}
+
+.reveal::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--bg, #031023);
+    transform: scaleX(1);
+    transform-origin: right;
+    z-index: 10;
+}
+
+.reveal.active::before {
+    transform: scaleX(0);
+    transform-origin: left;
+}
+
+
+/* Text Animation */
+
+.text-split {
+    display: inline-block;
+    line-height: 1.2;
+}
+
+.text-split .char {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(20px) rotateX(-90deg);
+    transform-style: preserve-3d;
+}
+
+.text-split.active .char {
+    opacity: 1;
+    transform: translateY(0) rotateX(0deg);
+}
+
+
+/* Parallax Elements */
+
+.parallax {
+    will-change: transform;
+}
+
+
+/* Stagger Content */
+
+.stagger-item,
+[data-stagger-item] {
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.stagger-item.active,
+[data-stagger-item].active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* Pin Section */
+
+.pinned-section {
+    position: relative;
+}
+
+.pin-content {
+    position: relative;
+}
+
+
+/* Image Reveal */
+
+.image-reveal {
+    position: relative;
+    overflow: hidden;
+}
+
+.image-reveal img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.image-reveal::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(4px);
+    transform: scaleX(1);
+    transform-origin: right;
+    z-index: 5;
+}
+
+.image-reveal.active::before {
+    transform: scaleX(0);
+    transform-origin: left;
+}
+
+
+/* Image Sequence Animation */
+
+.image-sequence {
+    position: relative;
+    overflow: hidden;
+    background: #000;
+}
+
+.image-sequence canvas,
+.image-sequence img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+
+/* Magnetic Button */
+
+.magnetic-btn {
+    position: relative;
+    display: inline-block;
+    padding: 12px 24px;
+    border: 2px solid var(--accent, #79c3ff);
+    background: transparent;
+    color: var(--accent, #79c3ff);
+    font-size: 16px;
+    font-family: inherit;
+    cursor: pointer;
+    overflow: hidden;
+    transition: color 0.3s ease;
+    z-index: 1;
+}
+
+.magnetic-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: var(--accent, #79c3ff);
+    z-index: -1;
+    transition: left 0.3s ease;
+}
+
+.magnetic-btn:hover::before {
+    left: 0;
+}
+
+.magnetic-btn:hover {
+    color: var(--bg, #031023);
+}
+
+
+/* Horizontal Scroll Gallery */
+
+.h-scroll-gallery {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+}
+
+.h-scroll-gallery-item {
+    flex: 0 0 400px;
+    height: 300px;
+    border-radius: 8px;
+    overflow: hidden;
+    opacity: 0.6;
+    transition: opacity 0.3s ease;
+}
+
+.h-scroll-gallery-item.active {
+    opacity: 1;
+}
+
+.h-scroll-gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+/* Storytelling Section */
+
+.story-pin-section {
+    position: relative;
+    min-height: 300vh;
+}
+
+.story-content {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.story-bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    z-index: -1;
+}
+
+.story-bg.active {
+    opacity: 1;
+}
+
+.story-text {
+    position: relative;
+    z-index: 2;
+    max-width: 600px;
+    text-align: center;
+    padding: 40px;
+}
+
+
+/* Scroll-triggered animations */
+
+[data-animation="fadeUp"] {
+    opacity: 0;
+    transform: translateY(40px);
+}
+
+[data-animation="fadeUp"].animated {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+[data-animation="fadeDown"] {
+    opacity: 0;
+    transform: translateY(-40px);
+}
+
+[data-animation="fadeDown"].animated {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+[data-animation="fadeLeft"] {
+    opacity: 0;
+    transform: translateX(-40px);
+}
+
+[data-animation="fadeLeft"].animated {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+[data-animation="fadeRight"] {
+    opacity: 0;
+    transform: translateX(40px);
+}
+
+[data-animation="fadeRight"].animated {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+[data-animation="zoomIn"] {
+    opacity: 0;
+    transform: scale(0.9);
+}
+
+[data-animation="zoomIn"].animated {
+    opacity: 1;
+    transform: scale(1);
+}
+
+[data-animation="rotateIn"] {
+    opacity: 0;
+    transform: rotate(-10deg) scale(0.95);
+}
+
+[data-animation="rotateIn"].animated {
+    opacity: 1;
+    transform: rotate(0) scale(1);
+}
+
+
+/* Smooth reveal with animation */
+
+.anim-reveal-in {
+    opacity: 0;
+    clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
+}
+
+.anim-reveal-in.active {
+    opacity: 1;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+
+
+/* Text character animation */
+
+.anim-char {
+    opacity: 0;
+    transform: translateY(20px);
+    display: inline-block;
+}
+
+.anim-char.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* Mouse follow cursor */
+
+.mouse-follow {
+    position: relative;
+    pointer-events: none;
+}
+
+.mouse-follow-cursor {
+    position: fixed;
+    width: 30px;
+    height: 30px;
+    border: 2px solid var(--accent, #79c3ff);
+    border-radius: 50%;
+    pointer-events: none;
+    display: none;
+    z-index: 9999;
+    mix-blend-mode: screen;
+}
+
+.mouse-follow-cursor.active {
+    display: block;
+}
+
+
+/* Parallax background */
+
+.parallax-bg {
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+/* Smooth transition for all animations */
+
+[data-animation],
+.fade-up,
+.fade-in,
+.reveal,
+.stagger-item,
+.image-reveal,
+.story-bg {
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+}
+
+
+/* Delay utilities */
+
+.delay-100 {
+    transition-delay: 0.1s;
+}
+
+.delay-200 {
+    transition-delay: 0.2s;
+}
+
+.delay-300 {
+    transition-delay: 0.3s;
+}
+
+.delay-400 {
+    transition-delay: 0.4s;
+}
+
+.delay-500 {
+    transition-delay: 0.5s;
+}
+
+
+/* Easing functions */
+
+@supports (animation: test) {
+    @keyframes slideInUp {
+        from {
+            opacity: 0;
+            transform: translate3d(0, 40px, 0);
+        }
+        to {
+            opacity: 1;
+            transform: translate3d(0, 0, 0);
+        }
+    }
+    @keyframes slideInDown {
+        from {
+            opacity: 0;
+            transform: translate3d(0, -40px, 0);
+        }
+        to {
+            opacity: 1;
+            transform: translate3d(0, 0, 0);
+        }
+    }
+    @keyframes slideInLeft {
+        from {
+            opacity: 0;
+            transform: translate3d(-40px, 0, 0);
+        }
+        to {
+            opacity: 1;
+            transform: translate3d(0, 0, 0);
+        }
+    }
+    @keyframes slideInRight {
+        from {
+            opacity: 0;
+            transform: translate3d(40px, 0, 0);
+        }
+        to {
+            opacity: 1;
+            transform: translate3d(0, 0, 0);
+        }
+    }
+    @keyframes fadeInScale {
+        from {
+            opacity: 0;
+            transform: scale(0.9);
+        }
+        to {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+    @keyframes revealMask {
+        from {
+            clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
+        }
+        to {
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+        }
+    }
+}

@@ -165,7 +165,7 @@ setInterval(nextSlide, 4000);
 updateSlider();
 
 
-const swiper = new Swiper(".luxurySwiper", {
+const swiper = typeof Swiper !== 'undefined' ? new Swiper(".luxurySwiper", {
     slidesPerView: 2.5,
     spaceBetween: 24,
     speed: 1200,
@@ -194,4 +194,4 @@ const swiper = new Swiper(".luxurySwiper", {
             slidesPerView: 2.5
         }
     }
-});
+}) : null;

@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="css/gallery.css">
     <link rel="stylesheet" href="css/experience.css">
     <link rel="stylesheet" href="css/amenities.css">
+    <link rel="stylesheet" href="css/top.css">
+    <link rel="stylesheet" href="css/animations.css">
     <link rel="stylesheet" href="css/style.css">
 
 </head>
@@ -36,31 +38,33 @@
     <main class="page-content">
 
         <section class="section section-top" style="background-image: url('images/image-bg-header.jpg');">
+            <div class="cloud cloud-1 layer"><img src="images/cloud-1.png" alt=""></div>
+            <div class="cloud cloud-2 layer"><img src="images/cloud-2.png" alt=""></div>
         </section>
 
-        <section class="section section-1" style="background-image: url('images/image-section-1.png');">
+        <section class="section section-1" style="background-image: url('images/image-section-1.png');" data-animation="fadeUp">
             <div class="container">
-                <div class="amenities-text">
+                <div class="amenities-text" data-animation="fadeUp">
                     <div class="amenities-actions">
                         <img src="images/2.png" alt="">
                         <img src="images/1.png" alt="">
                     </div>
                 </div>
-                <div class="say">
+                <div class="say" data-animation="fadeUp">
                     <img src="images/say-text.png" alt="Say">
                     <p>Say là khi ta để trái tim thăng hoa giữa nhịp sống Santorini rực rỡ tại The Hera Resort, lãng đãng hòa mình vào vẻ đẹp nguyên sơ của đại ngàn và biển biếc. Khi người ta say, mọi rào cản đều tan biến để nhường chỗ cho những rung cảm
                         chân thật nhất.</p>
                 </div>
-                <div class="say-item">
-                    <div class="say-item-content">
+                <div class="say-item" data-animation="stagger">
+                    <div class="say-item-content" data-stagger-item>
                         <h3>Say thiên nhiên</h3>
                         <p>Say cái chạm nhẹ của gió biển Quy Nhơn, say bầu không khí tinh khôi và ánh bình minh nhuộm vàng vịnh biếc vĩnh cửu.</p>
                     </div>
-                    <div class="say-item-content">
+                    <div class="say-item-content" data-stagger-item>
                         <h3>Say con người</h3>
                         <p>Say nụ cười chân phương của người bản xứ, say nhịp sống dung dị và những câu chuyện nồng hậu giữa miền cát trắng.</p>
                     </div>
-                    <div class="say-item-content">
+                    <div class="say-item-content" data-stagger-item>
                         <h3>Say kiệt tác</h3>
                         <p>Say sắc trắng Santorini rực rỡ nương mình vào núi đá, say nhịp sống phóng khoáng bừng sắc tại thiên đường du lịch hàng đầu thế giới.</p>
                     </div>
@@ -68,9 +72,9 @@
             </div>
         </section>
 
-        <section class="section section-2" style="background-image: url('images/image-section-2.png');">
+        <section class="section section-2" style="background-image: url('images/image-section-2.png');" data-animation="fadeUp">
             <div class="container">
-                <div class="section-2-content">
+                <div class="section-2-content" data-animation="fadeUp">
                     <h2>Tuyệt tác</h2>
                     <h2 class="right">Santorini</h2>
                     <h3>miền nhiệt đới</h3>
@@ -82,12 +86,12 @@
             </div>
         </section>
 
-        <section class="section section-3" style="background-image: url('images/image-section-3.png');">
-            <div class="name-du-an">
+        <section class="section section-3" style="background-image: url('images/image-section-3.png');" data-animation="fadeUp">
+            <div class="name-du-an" data-animation="fadeUp">
                 <img src="images/ten-du-an.png" alt="Tên dự án">
             </div>
             <div class="container">
-                <div class="destination">
+                <div class="destination" data-animation="fadeUp">
                     <h2>Điểm đến</h2>
                     <h2 class="right">thượng lưu</h2>
                     <p>Chưa từng có tại thiên đường du lịch hàng đầu thế giới</p>
@@ -141,18 +145,18 @@
             </div>
         </section>
 
-        <section class="section section-4" style="background-image: url('images/image-section-4.png');">
+        <section class="section section-4" style="background-image: url('images/image-section-4.png');" data-animation="fadeUp">
             <div class="container">
-                <div class="section-4-content">
+                <div class="section-4-content" data-animation="fadeUp">
                     <p>Khi thiên nhiên và kiến trúc<br> cùng chắp bút cho những</p>
                     <h2>bản giao hưởng huyền thoại</h2>
                 </div>
             </div>
 
-            <div class="amenities-content">
+            <div class="amenities-content" data-animation="fadeUp">
 
                 <div class="container">
-                    <div class="amenities-info">
+                    <div class="amenities-info" data-animation="fadeUp">
                         <h2 class="amenities-title">
                             Tiện ích<br> THE HERA RESORT
                         </h2>
@@ -221,12 +225,12 @@
             </div>
         </section>
 
-        <section class="section section-5" style="background-image: url('images/image-section-5.png');">
-            <div class="arc-header">
-                <div class="arc-header-img">
+        <section class="section section-5" data-animation="fadeUp">
+            <div class="arc-header" data-animation="stagger">
+                <div class="arc-header-img" data-stagger-item>
                     <img src="images/duoi-cong-1.png" alt="">
                 </div>
-                <div class="arc-header-text">
+                <div class="arc-header-text" data-stagger-item>
                     <h2>Vạn trải nghiệm <br><span>đa sắc</span></h2>
                     <p>Bền đa tầng lợi nhuận</p>
                 </div>
@@ -306,7 +310,7 @@
 
         </section>
 
-        <section class="section section-album">
+        <section class="section section-album" data-animation="fadeUp">
             <div class="container">
                 <div class="gallery-container">
                     <div class="main-display">
@@ -361,10 +365,10 @@
             </div>
         </section>
 
-        <section class="section section-partners">
-            <div class="container">
+        <section class="section section-partners" data-animation="fadeUp">
+            <div class="container" data-animation="fadeUp">
                 <h2>Đơn vị phân phối</h2>
-                <div class="partners-row">
+                <div class="partners-row" data-animation="fadeUp">
                     <img src="images/dv-1.png" alt="Đối tác 1">
                     <img src="images/dv-1.png" alt="Đối tác 2">
                     <img src="images/dv-1.png" alt="Đối tác 3">
@@ -420,10 +424,26 @@
         </div>
 
     </footer>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script src="js/gallery.js"></script>
 
+    <!-- Smooth Scroll - Lenis -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+
+    <!-- GSAP Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/PixiPlugin.min.js"></script>
+
+    <!-- SplitType for text animation -->
+    <script src="https://cdn.jsdelivr.net/npm/split-type@0.3.2/umd/index.min.js"></script>
+
+    <!-- Custom Scripts -->
+    <script src="js/utilities.js"></script>
+    <script src="js/gallery.js"></script>
     <script src="js/custom.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="js/top.js"></script>
 </body>
 
 </html>
