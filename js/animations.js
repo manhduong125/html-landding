@@ -14,8 +14,8 @@ document.addEventListener('DOMContentLoaded', () => {
         fadeUpElements.forEach((element) => {
             if (element.querySelector('[data-animation="fadeUp"]')) return;
 
-            const delay = parseFloat(element.dataset.fadeDelay || '0.3');
-            const duration = parseFloat(element.dataset.fadeDuration || '1.35');
+            const delay = parseFloat(element.dataset.fadeDelay || '0.5');
+            const duration = parseFloat(element.dataset.fadeDuration || '1.5');
 
             gsap.fromTo(element, { autoAlpha: 0, y: 50 }, {
                 scrollTrigger: {
