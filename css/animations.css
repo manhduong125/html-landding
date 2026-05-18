@@ -80,6 +80,7 @@ ANIMATION STYLES - GSAP ScrollTrigger
 [data-stagger-item] {
     opacity: 0;
     transform: translateY(30px);
+    transition: none;
 }
 
 .stagger-item.active,
@@ -261,7 +262,8 @@ ANIMATION STYLES - GSAP ScrollTrigger
 
 [data-animation="fadeUp"] {
     opacity: 0;
-    transform: translateY(40px);
+    transform: translateY(50px);
+    transition: none;
 }
 
 [data-animation="fadeUp"].animated {
@@ -381,13 +383,11 @@ ANIMATION STYLES - GSAP ScrollTrigger
 }
 
 
-/* Smooth transition for all animations */
+/* Smooth transition for CSS-only animations (not GSAP-controlled) */
 
-[data-animation],
 .fade-up,
 .fade-in,
 .reveal,
-.stagger-item,
 .image-reveal,
 .story-bg {
     transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);

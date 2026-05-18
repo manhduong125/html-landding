@@ -1,53 +1,45 @@
 // Main Animation Controller - GSAP ScrollTrigger + Lenis Smooth Scroll
 
 document.addEventListener('DOMContentLoaded', () => {
-    // Only proceed if GSAP and ScrollTrigger are loaded
     if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') {
         console.warn('GSAP or ScrollTrigger not loaded');
         return;
     }
 
-    // Register plugins
     gsap.registerPlugin(ScrollTrigger);
 
-    // ============================================================
-    // 1. FADE-UP ANIMATIONS
-    // ============================================================
     function initFadeUpAnimations() {
         const fadeUpElements = document.querySelectorAll('[data-animation="fadeUp"]');
 
         fadeUpElements.forEach((element) => {
-            gsap.fromTo(element, { autoAlpha: 0, y: 40 }, {
+            if (element.querySelector('[data-animation="fadeUp"]')) return;
+
+            const delay = parseFloat(element.dataset.fadeDelay || '0.3');
+            const duration = parseFloat(element.dataset.fadeDuration || '1.35');
+
+            gsap.fromTo(element, { autoAlpha: 0, y: 50 }, {
                 scrollTrigger: {
                     trigger: element,
-                    scroller: document.scrollingElement || document.documentElement,
-                    start: 'top 90%',
+                    start: 'top 88%',
                     toggleActions: 'play none none none',
-                    markers: false,
                     once: true,
-                    onRefresh(self) {
-                        if (self.animation) {
-                            self.animation.progress(self.progress);
-                        }
-                    },
+                    invalidateOnRefresh: true,
                 },
                 autoAlpha: 1,
                 y: 0,
-                duration: 0.9,
-                ease: 'power3.out',
+                duration,
+                delay,
+                ease: 'power2.out',
                 immediateRender: false,
+                onStart: () => element.classList.add('animated'),
             });
         });
     }
 
-    // ============================================================
-    // 2. REVEAL MASK ANIMATIONS
-    // ============================================================
     function initRevealAnimations() {
         const revealElements = document.querySelectorAll('[data-animation="reveal"]');
 
         revealElements.forEach((element) => {
-            // Create overlay
             if (!element.querySelector('.reveal-overlay')) {
                 const overlay = document.createElement('div');
                 overlay.className = 'reveal-overlay';
@@ -70,6 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     trigger: element,
                     start: 'top 75%',
                     once: true,
+                    invalidateOnRefresh: true,
                 },
                 scaleX: 0,
                 duration: 0.8,
@@ -78,9 +71,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // ============================================================
-    // 3. PARALLAX ANIMATIONS
-    // ============================================================
     function initParallaxAnimations() {
         const parallaxElements = document.querySelectorAll('[data-animation="parallax"]');
 
@@ -91,18 +81,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 scrollTrigger: {
                     trigger: element,
                     scrub: true,
+                    invalidateOnRefresh: true,
                 },
-                y: (i, target) => {
-                    return ScrollTrigger.getVelocity(target) * -speed * 0.1;
-                },
+                y: (i, target) => ScrollTrigger.getVelocity(target) * -speed * 0.1,
                 ease: 'none',
             });
         });
     }
 
-    // ============================================================
-    // 4. STAGGER CONTENT ANIMATIONS
-    // ============================================================
     function initStaggerAnimations() {
         const staggerContainers = document.querySelectorAll('[data-animation="stagger"]');
 
@@ -113,16 +99,10 @@ document.addEventListener('DOMContentLoaded', () => {
             gsap.fromTo(items, { autoAlpha: 0, y: 30 }, {
                 scrollTrigger: {
                     trigger: container,
-                    scroller: document.scrollingElement || document.documentElement,
                     start: 'top 90%',
                     toggleActions: 'play none none none',
-                    markers: false,
                     once: true,
-                    onRefresh(self) {
-                        if (self.animation) {
-                            self.animation.progress(self.progress);
-                        }
-                    },
+                    invalidateOnRefresh: true,
                 },
                 autoAlpha: 1,
                 y: 0,
@@ -134,9 +114,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // ============================================================
-    // 5. PIN SECTION ANIMATIONS
-    // ============================================================
     function initPinSections() {
         const pinnedSections = document.querySelectorAll('[data-pin="true"]');
 
@@ -149,15 +126,12 @@ document.addEventListener('DOMContentLoaded', () => {
                     pin: true,
                     scrub: 1,
                     end: `+=${duration * 100}`,
-                    markers: false,
+                    invalidateOnRefresh: true,
                 },
             });
         });
     }
 
-    // ============================================================
-    // 6. TEXT SPLIT ANIMATIONS
-    // ============================================================
     function initTextSplitAnimations() {
         if (typeof SplitType === 'undefined') return;
 
@@ -171,6 +145,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     trigger: element,
                     start: 'top 80%',
                     once: true,
+                    invalidateOnRefresh: true,
                 },
                 opacity: 1,
                 y: 0,
@@ -183,9 +158,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // ============================================================
-    // 7. IMAGE SEQUENCE ANIMATIONS
-    // ============================================================
     function initImageSequenceAnimations() {
         const sequenceElements = document.querySelectorAll('[data-animation="imageSequence"]');
 
@@ -193,7 +165,6 @@ document.addEventListener('DOMContentLoaded', () => {
             const images = element.querySelectorAll('img');
             if (images.length === 0) return;
 
-            // Hide all images except first
             gsap.set(images, { opacity: 0 });
             gsap.set(images[0], { opacity: 1 });
 
@@ -201,7 +172,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 scrollTrigger: {
                     trigger: element,
                     scrub: 1,
-                    markers: false,
+                    invalidateOnRefresh: true,
                 },
                 opacity: (i) => (i === 0 ? 0 : 1),
                 duration: 0.5,
@@ -211,25 +182,16 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // ============================================================
-    // 8. MAGNETIC BUTTON EFFECTS
-    // ============================================================
     function initMagneticButtons() {
         const magneticButtons = document.querySelectorAll('[data-magnetic="true"]');
 
         magneticButtons.forEach((button) => {
-            let x = 0;
-            let y = 0;
-            let targetX = 0;
-            let targetY = 0;
-
             button.addEventListener('mousemove', (e) => {
                 const rect = button.getBoundingClientRect();
                 const buttonCenterX = rect.left + rect.width / 2;
                 const buttonCenterY = rect.top + rect.height / 2;
-
-                targetX = (e.clientX - buttonCenterX) * 0.2;
-                targetY = (e.clientY - buttonCenterY) * 0.2;
+                const targetX = (e.clientX - buttonCenterX) * 0.2;
+                const targetY = (e.clientY - buttonCenterY) * 0.2;
 
                 gsap.to(button, {
                     x: targetX,
@@ -251,12 +213,8 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // ============================================================
-    // 9. MOUSE PARALLAX EFFECT
-    // ============================================================
     function initMouseParallax() {
         const parallaxElements = document.querySelectorAll('[data-mouse-parallax="true"]');
-
         if (parallaxElements.length === 0) return;
 
         document.addEventListener('mousemove', (e) => {
@@ -269,8 +227,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 const y = (mouseY - 0.5) * strength;
 
                 gsap.to(el, {
-                    x: x,
-                    y: y,
+                    x,
+                    y,
                     duration: 0.8,
                     ease: 'power2.out',
                     overwrite: 'auto',
@@ -279,23 +237,19 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // ============================================================
-    // 10. SMOOTH HORIZONTAL GALLERY
-    // ============================================================
     function initHorizontalGallery() {
         const galleries = document.querySelectorAll('[data-animation="hGallery"]');
 
         galleries.forEach((gallery) => {
             const scrollWidth = gallery.scrollWidth;
             const clientWidth = gallery.clientWidth;
-
             if (scrollWidth <= clientWidth) return;
 
             gsap.to(gallery, {
                 scrollTrigger: {
                     trigger: gallery,
                     scrub: 1,
-                    markers: false,
+                    invalidateOnRefresh: true,
                 },
                 x: -(scrollWidth - clientWidth),
                 ease: 'none',
@@ -303,9 +257,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // ============================================================
-    // 11. PINNED STORYTELLING SECTION
-    // ============================================================
     function initPinnedStorySection() {
         const storySection = document.querySelector('[data-animation="pinnedStory"]');
         if (!storySection) return;
@@ -313,7 +264,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const stories = storySection.querySelectorAll('[data-story-slide]');
         if (stories.length === 0) return;
 
-        // Hide all stories except first
         gsap.set(stories, { opacity: 0 });
         gsap.set(stories[0], { opacity: 1 });
 
@@ -324,20 +274,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 end: `+=${stories.length * 200}%`,
                 scrub: 1,
                 pin: true,
-                markers: false,
+                invalidateOnRefresh: true,
             },
             opacity: (i) => (i === 0 ? 0 : 1),
             duration: 1,
-            stagger: {
-                each: 0.5,
-            },
+            stagger: { each: 0.5 },
             ease: 'power1.inOut',
         });
     }
 
-    // ============================================================
-    // 12. SCROLL-TO-TOP BUTTON
-    // ============================================================
     function initScrollToTop() {
         const scrollTopBtn = document.querySelector('[data-scroll-to-top]');
         if (!scrollTopBtn) return;
@@ -355,6 +300,11 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         scrollTopBtn.addEventListener('click', () => {
+            if (typeof window.lenis !== 'undefined' && typeof window.lenis.scrollTo === 'function') {
+                window.lenis.scrollTo(0, { duration: 1 });
+                return;
+            }
+
             gsap.to(window, {
                 scrollTo: 0,
                 duration: 1,
@@ -363,9 +313,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // ============================================================
-    // 13. IMAGE REVEAL WITH PARALLAX
-    // ============================================================
     function initImageReveal() {
         const imageReveals = document.querySelectorAll('[data-animation="imageReveal"]');
 
@@ -378,6 +325,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     trigger: element,
                     start: 'top 70%',
                     once: true,
+                    invalidateOnRefresh: true,
                 },
                 scale: 1.1,
                 opacity: 0,
@@ -387,9 +335,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // ============================================================
-    // Initialize All Animations
-    // ============================================================
     function initializeAllAnimations() {
         initFadeUpAnimations();
         initRevealAnimations();
@@ -404,25 +349,25 @@ document.addEventListener('DOMContentLoaded', () => {
         initPinnedStorySection();
         initScrollToTop();
         initImageReveal();
-
-        // Refresh ScrollTrigger after all animations are initialized
         ScrollTrigger.refresh();
     }
 
-    // Start initialization
-    initializeAllAnimations();
-
-    // Make sure ScrollTrigger measures correctly after full page load/hash positioning
-    window.addEventListener('load', () => {
-        if (typeof window.lenis !== 'undefined' && typeof window.lenis.scrollTo === 'function') {
-            window.lenis.scrollTo(window.pageYOffset || window.scrollY, { duration: 0, immediate: true });
+    function refreshAfterAssets() {
+        if (typeof window.lenis !== 'undefined' && typeof window.lenis.resize === 'function') {
+            window.lenis.resize();
         }
-        ScrollTrigger.refresh();
+        ScrollTrigger.refresh(true);
+    }
+
+    // Wait until pin/parallax scripts on the same tick have registered their triggers
+    requestAnimationFrame(() => {
+        requestAnimationFrame(initializeAllAnimations);
     });
 
-    // Refresh on window resize
+    window.addEventListener('load', refreshAfterAssets);
+
     window.addEventListener('resize', () => {
-        ScrollTrigger.refresh();
+        refreshAfterAssets();
     });
 
     console.log('✓ GSAP ScrollTrigger Animations initialized');

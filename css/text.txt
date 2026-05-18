@@ -1,0 +1,1 @@
+<div data-animation="fadeUp" data-fade-delay="0.5" data-fade-duration="1.6">

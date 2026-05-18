@@ -25,51 +25,39 @@ class AnimationUtilities {
             touchMultiplier: 2,
         });
 
-        function raf(time) {
-            lenis.raf(time);
-            if (typeof ScrollTrigger !== 'undefined') {
-                ScrollTrigger.update();
+        if (typeof gsap !== 'undefined') {
+            gsap.ticker.add((time) => {
+                lenis.raf(time * 1000);
+            });
+            gsap.ticker.lagSmoothing(0);
+        } else {
+            function raf(time) {
+                lenis.raf(time);
+                requestAnimationFrame(raf);
             }
             requestAnimationFrame(raf);
         }
-        requestAnimationFrame(raf);
 
         if (typeof ScrollTrigger !== 'undefined') {
-            lenis.on('scroll', () => ScrollTrigger.update());
+            lenis.on('scroll', ScrollTrigger.update);
 
-            const scroller = document.scrollingElement || document.documentElement || document.body;
+            const scroller = document.documentElement;
 
-            // Sync Lenis to the browser's current scroll position on page load
-            if (window.pageYOffset && typeof lenis.scrollTo === 'function') {
-                lenis.scrollTo(window.pageYOffset, { duration: 0, immediate: true });
-            }
-
-            const proxy = {
+            ScrollTrigger.scrollerProxy(scroller, {
                 scrollTop(value) {
                     if (arguments.length) {
                         lenis.scrollTo(value, { duration: 0, immediate: true });
-                        return;
                     }
                     return lenis.scroll;
                 },
-                scrollLeft(value) {
-                    if (arguments.length) {
-                        lenis.scrollTo(value, { duration: 0, immediate: true });
-                        return;
-                    }
+                scrollLeft() {
                     return 0;
                 },
                 getBoundingClientRect() {
                     return { top: 0, left: 0, width: window.innerWidth, height: window.innerHeight };
                 },
                 pinType: scroller.style.transform ? 'transform' : 'fixed',
-            };
-
-            ScrollTrigger.scrollerProxy(scroller, proxy);
-
-            if (document.body !== scroller) {
-                ScrollTrigger.scrollerProxy(document.body, proxy);
-            }
+            });
 
             ScrollTrigger.defaults({ scroller });
 
@@ -79,23 +67,13 @@ class AnimationUtilities {
                 }
             });
 
-            ScrollTrigger.addEventListener('refresh', () => {
-                if (typeof lenis.resize === 'function') {
-                    lenis.resize();
-                }
-            });
-
             const syncScrollTrigger = () => {
                 if (typeof lenis.scrollTo === 'function') {
                     lenis.scrollTo(window.pageYOffset || window.scrollY, { duration: 0, immediate: true });
                 }
-                if (typeof ScrollTrigger !== 'undefined') {
-                    ScrollTrigger.update();
-                    ScrollTrigger.refresh();
-                }
+                ScrollTrigger.update();
+                ScrollTrigger.refresh();
             };
-
-            ScrollTrigger.refresh();
 
             window.addEventListener('hashchange', () => requestAnimationFrame(syncScrollTrigger));
             window.addEventListener('popstate', () => requestAnimationFrame(syncScrollTrigger));
@@ -481,14 +459,5 @@ document.addEventListener('DOMContentLoaded', () => {
     if (typeof Lenis !== 'undefined') {
         const lenis = AnimationUtilities.initLenis();
         window.lenis = lenis;
-
-        if (typeof ScrollTrigger !== 'undefined' && lenis) {
-            lenis.on('scroll', () => ScrollTrigger.update());
-            ScrollTrigger.addEventListener('refresh', () => {
-                if (typeof lenis.resize === 'function') {
-                    lenis.resize();
-                }
-            });
-        }
     }
 });

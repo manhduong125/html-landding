@@ -94,7 +94,7 @@ textarea {
 }
 
 html {
-    scroll-behavior: smooth;
+    scroll-behavior: auto;
 }
 
 .container {
@@ -491,6 +491,14 @@ html {
 
 .section-partners {
     text-align: center;
+    margin-top: 50px;
+}
+
+.partners-header h2 {
+    font-size: 76px;
+    color: #fff;
+    line-height: 1;
+    margin-bottom: 60px;
 }
 
 .partners-row {
