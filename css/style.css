@@ -348,44 +348,42 @@ html {
     border-radius: 12px;
 }
 
+.amenities-actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 250px;
+    margin-top: 0;
+    padding-top: 70px;
+}
+
 .say {
-    opacity: 0;
-    transform: translateY(24px);
-    transition: opacity 0.9s ease, transform 0.9s ease;
+    display: flex;
+    gap: 10px;
+    margin-top: 30%;
 }
 
-.say.visible {
-    opacity: 1;
-    transform: none;
+.say p {
+    margin-top: 50px;
 }
 
-.say img {
-    max-width: 200px;
-    margin-bottom: 16px;
-}
+.say img {}
 
 .say-item {
-    opacity: 0;
-    transform: translateY(24px);
-    transition: opacity 0.9s ease, transform 0.9s ease;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
-}
-
-.say-item.visible {
-    opacity: 1;
-    transform: none;
+    gap: 80px;
+    margin-top: 50px;
 }
 
 .say-item-content {
     text-align: center;
-    padding: 0 24px;
+    padding: 0 30px;
 }
 
 .say-item-content h3 {
     margin-bottom: 12px;
-    font-size: 1.1rem;
+    font-size: 34px;
 }
 
 .name-du-an {
