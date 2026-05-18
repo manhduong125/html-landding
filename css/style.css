@@ -186,6 +186,7 @@ html {
 
 .section-3 {
     aspect-ratio: 1920/2639;
+    margin-top: -1px;
 }
 
 .section-4 {
@@ -195,6 +196,7 @@ html {
 
 .section-5 {
     padding: 0;
+    margin-top: -10%;
 }
 
 .section-top {
@@ -327,6 +329,9 @@ html {
 }
 
 .image-map {
+    position: absolute;
+    bottom: 0;
+    right: 0;
     display: none;
 }
 
