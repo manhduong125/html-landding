@@ -364,6 +364,7 @@ html {
     max-width: 536px;
     margin-left: auto;
     text-align: center;
+    margin-top: 12%;
 }
 
 .destination h2 {
@@ -382,13 +383,17 @@ html {
     font-size: 28px;
     text-align: center;
     padding: 0 20px;
+    margin-bottom: 20px;
 }
 
 .box-destination {
-    background: rgba(3, 18, 39, 0.8);
+    background-image: url(../images/bg-box.png);
+    background-size: cover;
+    background-repeat: no-repeat;
     border-radius: 16px;
-    padding: 24px;
+    padding: 30px;
     overflow-x: auto;
+    margin-top: -20px;
 }
 
 .box-destination table {
@@ -398,38 +403,36 @@ html {
 
 .box-destination th,
 .box-destination td {
-    padding: 12px;
+    padding: 5px 10px;
     text-align: left;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.box-destination th {
-    color: var(--accent);
-    font-weight: 700;
+    border: none;
+    font-size: 16px;
+    color: #fff;
 }
 
 .city {
-    opacity: 0;
-    transform: translateY(24px);
-    transition: opacity 0.9s ease, transform 0.9s ease;
-}
-
-.city.visible {
-    opacity: 1;
-    transform: none;
-}
-
-.city h2 {
-    font-size: 2.2rem;
-    margin: 12px 0;
+    max-width: 420px;
 }
 
 .city h3 {
-    color: var(--accent);
-    font-size: 0.9rem;
-    text-transform: uppercase;
-    letter-spacing: 0.2em;
-    margin-bottom: 8px;
+    font-size: 42px;
+    color: #fff;
+    line-height: 1;
+}
+
+.city h2 {
+    font-size: 76px;
+    color: #fff;
+    line-height: 1;
+}
+
+.city span {
+    color: #78abc7;
+    font-size: 76px;
+    line-height: 1;
+    margin-bottom: 10px;
+    margin-left: 100px;
+    display: block;
 }
 
 .section-project .project-grid,
