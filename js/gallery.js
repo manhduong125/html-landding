@@ -195,3 +195,19 @@ const swiper = typeof Swiper !== 'undefined' ? new Swiper(".luxurySwiper", {
         }
     }
 }) : null;
+
+const swiperCity = typeof Swiper !== 'undefined' ?
+    new Swiper(".slide-city", {
+        slidesPerView: 1,
+        spaceBetween: 20,
+        speed: 1200,
+        loop: true,
+        autoplay: {
+            delay: 3000,
+            disableOnInteraction: false
+        },
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+        },
+    }) : null;

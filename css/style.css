@@ -196,7 +196,7 @@ html {
 
 .section-5 {
     padding: 0;
-    margin-top: -10%;
+    margin-top: -20%;
 }
 
 .section-top {
@@ -332,20 +332,37 @@ html {
     position: absolute;
     bottom: 0;
     right: 0;
-    display: none;
 }
 
 .slide-city {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
-    margin-top: 32px;
+    margin-top: 70px;
+    overflow: hidden;
 }
 
 .slide-city-item {
-    aspect-ratio: 1/1;
-    background: rgba(3, 18, 39, 0.6);
-    border-radius: 12px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.city-item-left {
+    max-width: 280px;
+}
+
+.city-item-left h4 {
+    font-size: 20px;
+}
+
+.city-item-left p {
+    font-size: 14px;
+    color: #a1dcf4;
+}
+
+.swiper-pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 40px;
 }
 
 .amenities-actions {
@@ -366,8 +383,6 @@ html {
 .say p {
     margin-top: 50px;
 }
-
-.say img {}
 
 .say-item {
     display: grid;
@@ -623,5 +638,17 @@ html {
     .map-copy,
     .feature-card p {
         padding: 18px;
+    }
+}
+
+@media (max-width: 1450px) {
+    .say {
+        margin-top: 10%;
+    }
+    .section-2-content {
+        padding-top: 25%;
+    }
+    .amenities-content {
+        padding-top: 30%;
     }
 }
