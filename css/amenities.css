@@ -1,64 +1,47 @@
-/* LEFT TEXT */
-.amenities-info {
-    width: 420px;
-    min-width: 420px;
+.amenities-content {
+    padding-top: 42%;
     position: relative;
-    padding-left: 40px;
 }
 
-.amenities-info::before {
-    content: '';
-    position: absolute;
-    left: -40px;
-    bottom: -40px;
-    width: 220px;
-    height: 220px;
-    background:
-        repeating-radial-gradient(circle at left bottom,
-            rgba(0, 155, 255, 0.35) 0px,
-            rgba(0, 155, 255, 0.35) 2px,
-            transparent 2px,
-            transparent 22px);
-    opacity: .7;
-    border-radius: 50%;
-}
-
-.amenities-sub {
-    color: #b8dfff;
-    font-size: 18px;
-    margin-bottom: 10px;
-    letter-spacing: 1px;
+.amenities-info {
+    position: relative;
+    z-index: 9;
 }
 
 .amenities-title {
     color: #fff;
-    font-size: 54px;
-    line-height: 1;
-    margin-bottom: 20px;
-    font-weight: 300;
+    font-size: 76px;
+    line-height: 1.2;
+    margin-bottom: 10px;
 }
 
 .amenities-desc {
-    color: #d4e8f6;
-    font-size: 22px;
-    line-height: 1.4;
-    font-weight: 300;
+    color: #a1dcf4;
+    font-size: 42px;
+    font-family: 'Butler-Light';
+    line-height: 1.2;
 }
+
 
 /* SWIPER */
-.swiper {
+
+.amenities-slide {
+    max-width: 60vw;
     width: 100%;
-    overflow: visible;
+    margin-left: auto;
+    margin-right: 0;
+    margin-top: -300px;
+    overflow: hidden;
 }
 
-.swiper-slide {
-    width: 320px !important;
+.swiper {
+    overflow: visible;
 }
 
 .card {
     position: relative;
     overflow: hidden;
-    height: 420px;
+    height: 412px;
     cursor: pointer;
 }
 
@@ -77,9 +60,7 @@
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(180deg,
-            rgba(0, 0, 0, 0),
-            rgba(0, 0, 0, 0.55));
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.55));
 }
 
 .card-number {
@@ -87,63 +68,78 @@
     left: 25px;
     bottom: 10px;
     z-index: 2;
-    color: #fff;
-    font-size: 74px;
+    color: #a1dcf4;
+    font-size: 76px;
     font-style: italic;
-    font-weight: 300;
-    opacity: .95;
+    font-family: 'DFVN Rosmerta';
 }
 
 .card-title {
     position: absolute;
-    left: 100px;
+    left: 120px;
     bottom: 35px;
     z-index: 2;
     color: #fff;
-    font-size: 22px;
+    font-size: 24px;
+    font-family: 'Butler-Light';
 }
+
 
 /* PAGINATION */
-.swiper-pagination {
+
+.slider-nav {
     position: absolute;
-    left: 120px !important;
-    bottom: 40px !important;
-    text-align: left;
+    left: -14px;
+    bottom: -100px;
+    z-index: 20;
+    display: flex;
+    gap: 22px;
 }
 
-.swiper-pagination-bullet {
-    width: 12px;
-    height: 12px;
-    background: #ffffff70;
-    opacity: 1;
-    margin: 0 8px !important;
+.swiper-button-prev,
+.swiper-button-next {
+    position: relative;
+    width: 56px;
+    height: 56px;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    backdrop-filter: blur(10px);
+    transition: 0.35s;
 }
 
-.swiper-pagination-bullet-active {
+.swiper-button-prev::after,
+.swiper-button-next::after {
+    display: none;
+}
+
+.swiper-button-prev:hover,
+.swiper-button-next:hover {
     background: #fff;
+    color: #001d35;
+    transform: translateY(-3px);
 }
 
 @media(max-width:991px) {
-
     .amenities-content {
         flex-direction: column;
         align-items: flex-start;
         padding: 30px;
     }
-
     .amenities-info {
         width: 100%;
         min-width: auto;
     }
-
     .amenities-title {
         font-size: 42px;
     }
-
     .swiper-slide {
         width: 260px !important;
     }
-
     .card {
         height: 320px;
     }

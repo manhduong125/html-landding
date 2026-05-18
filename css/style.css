@@ -16,6 +16,33 @@
     font-display: swap;
 }
 
+@font-face {
+    font-family: 'Butler-Light';
+    src: url('../fonts/Butler-Light.eot');
+    src: url('../fonts/Butler-Light.eot?#iefix') format('embedded-opentype'), url('../fonts/Butler-Light.woff2') format('woff2'), url('../fonts/Butler-Light.woff') format('woff'), url('../fonts/Butler-Light.ttf') format('truetype'), url('../fonts/Butler-Light.svg#Butler-Light') format('svg');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Butler-Regular';
+    src: url('../fonts/Butler.eot');
+    src: url('../fonts/Butler.eot?#iefix') format('embedded-opentype'), url('../fonts/Butler.woff2') format('woff2'), url('../fonts/Butler.woff') format('woff'), url('../fonts/Butler.ttf') format('truetype'), url('Butler.svg#Butler') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'DFVN Rosmerta';
+    src: url('../fonts/DFVN-Rosmerta-Regular.eot');
+    src: url('../fonts/DFVN-Rosmerta-Regular.eot?#iefix') format('embedded-opentype'), url('../fonts/DFVN-Rosmerta-Regular.woff2') format('woff2'), url('../fonts/DFVN-Rosmerta-Regular.woff') format('woff'), url('../fonts/DFVN-Rosmerta-Regular.ttf') format('truetype'), url('../fonts/DFVN-Rosmerta-Regular.svg#DFVN-Rosmerta-Regular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
 
 /* RESET */
 
@@ -56,7 +83,7 @@ h2,
 h3,
 h4,
 h5 {
-    font-family: 'Butler';
+    font-family: 'Butler-Light';
     font-weight: normal;
 }
 
@@ -73,6 +100,7 @@ html {
 .container {
     max-width: 1400px;
     margin: 0 auto;
+    position: relative;
 }
 
 .img-center {
@@ -161,7 +189,7 @@ html {
 }
 
 .section-4 {
-    aspect-ratio: 1920/1729;
+    aspect-ratio: 1920/2181;
     margin-top: -24%;
 }
 
@@ -435,16 +463,24 @@ html {
     display: block;
 }
 
-.section-project .project-grid,
-.section-features .feature-grid {
-    display: grid;
-    gap: 24px;
+.section-4-content {
+    text-align: center;
+    padding-top: 22%;
+    max-width: 500px;
 }
 
-.section-project .project-grid,
-.map-content {
-    grid-template-columns: minmax(280px, 1fr) minmax(320px, 420px);
-    align-items: center;
+.section-4-content h2 {
+    font-size: 76px;
+    color: #fff;
+    line-height: 1;
+    text-align: center;
+}
+
+.section-4-content p {
+    font-size: 24px;
+    color: #fff;
+    text-align: center;
+    margin-bottom: 20px;
 }
 
 

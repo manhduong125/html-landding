@@ -19,7 +19,7 @@ function updateMainDisplay(type, src) {
 
 // 1. Lắng nghe sự kiện Click vào các Thumb lớn ở dưới
 thumbItems.forEach(item => {
-    item.addEventListener('click', function (e) {
+    item.addEventListener('click', function(e) {
         // Nếu người dùng click trúng vào ảnh con bên trong popup thì bỏ qua, để hàm dưới xử lý
         if (e.target.classList.contains('sub-thumb')) return;
 
@@ -35,7 +35,7 @@ thumbItems.forEach(item => {
 // 2. Lắng nghe sự kiện Click vào các ảnh con (Sub-thumbs) xuất hiện khi hover
 const subThumbs = document.querySelectorAll('.sub-thumb');
 subThumbs.forEach(sub => {
-    sub.addEventListener('click', function (e) {
+    sub.addEventListener('click', function(e) {
         e.stopPropagation(); // Ngăn chặn sự kiện click lan ra thumb cha lớn
 
         // Cập nhật viền active cho thumb cha chứa nó
@@ -166,7 +166,7 @@ updateSlider();
 
 
 const swiper = new Swiper(".luxurySwiper", {
-    slidesPerView: "auto",
+    slidesPerView: 2.5,
     spaceBetween: 24,
     speed: 1200,
     loop: true,
@@ -176,8 +176,22 @@ const swiper = new Swiper(".luxurySwiper", {
         disableOnInteraction: false
     },
 
-    pagination: {
-        el: ".swiper-pagination",
-        clickable: true
+    navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
     },
+
+    pagination: false,
+
+    breakpoints: {
+        0: {
+            slidesPerView: 1.5
+        },
+        768: {
+            slidesPerView: 1.5
+        },
+        1200: {
+            slidesPerView: 2.5
+        }
+    }
 });
